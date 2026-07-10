@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run test suite
+        run: pytest tests/ -q
+      - name: Chatbot smoke check
+        run: |
+          python -m chatbot.bot "help" | grep -q "Restocking assistant"
+          python -m chatbot.bot "run scenario 2" | grep -q "Recommendation:"
+          python -m chatbot.bot "status of store 1001" | grep -q "Stock health"

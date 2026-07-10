@@ -1,0 +1,39 @@
+name: Restocking assistant chatbot
+
+on:
+  issues:
+    types: [opened]
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+  contents: read
+
+concurrency:
+  group: chatbot-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  reply:
+    # answer humans only, and only on issues (not pull requests)
+    if: >
+      github.event.sender.type != 'Bot' &&
+      (github.event_name == 'issues' || !github.event.issue.pull_request)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install runtime dependencies
+        run: pip install "pandas>=2.2" "pydantic>=2.7"
+      - name: Run the assistant and post the reply
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          QUERY_TEXT: >-
+            ${{ github.event_name == 'issues'
+                && github.event.issue.body
+                || github.event.comment.body }}
+        run: python -m chatbot.bot

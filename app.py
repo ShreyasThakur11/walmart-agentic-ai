@@ -284,7 +284,7 @@ st.markdown(
         <div>
             <h1 class="header-title">🛒 Walmart Smart Inventory Restocking Assistant</h1>
             <p style="color: #E2E8F0; margin: 5px 0 0 0; font-size: 0.95rem;">
-                Enterprise Multi-Agent AI Orchestration Platform • Version 1.0
+                Multi-Agent Restocking Assistant • Version 1.0
             </p>
         </div>
         <div style="text-align: right;">

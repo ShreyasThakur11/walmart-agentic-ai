@@ -1,219 +1,149 @@
-# Walmart Smart Inventory & Restocking Assistant (v1.0)
-> **An Enterprise Multi-Agent AI Platform for Intelligent Inventory Monitoring, Demand Prediction, and Automated Restocking.**
+# Walmart Smart Inventory and Restocking Assistant
 
----
+![CI](https://github.com/ShreyasThakur11/walmart-agentic-ai/actions/workflows/ci.yml/badge.svg)
+![Chatbot](https://github.com/ShreyasThakur11/walmart-agentic-ai/actions/workflows/chatbot.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.12%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-## 📋 Executive Summary
-Maintaining optimal retail inventory levels is a major challenge for Walmart stores globally. Overstocking inflates holding costs and wastes valuable shelf space, while understocking (stockouts) directly reduces sales volume and damages customer satisfaction.
+A multi-agent system that automates retail restocking decisions: it audits
+store inventory, forecasts demand, weighs warehouse transfers against
+supplier orders, plans logistics, and hands the store manager one
+explainable recommendation.
 
-The **Walmart Smart Inventory & Restocking Assistant** is a production-grade multi-agent AI system designed to automate stockout detection, predict demand surges, evaluate supply options (regional warehouses vs. external commercial suppliers), select shipping modes, and deliver explainable decision recommendation reports to store managers.
+Every agent is deterministic and rule based. There is no LLM in the loop, no
+API key to configure and no cost per run, which is what makes the chatbot
+below possible on plain GitHub Actions.
 
----
+## Ask the assistant on GitHub
 
-## 🎯 Business Problem & Context
-Walmart operates thousands of retail locations worldwide. When shelf inventory falls below safety levels, restocking managers must manually cross-reference data from multiple distinct IT systems:
-1.  **Inventory Records**: Current stock levels and thresholds.
-2.  **Sales History**: Recent velocity, active promotions, and seasonal demand.
-3.  **Distribution Center (DC) Stock**: Nearby warehouse inventory.
-4.  **Vendor / Supplier Lead Times**: Order lead times, unit costs, and delivery reliability.
-5.  **Logistics Network**: Freight cost, carrier availability, and travel distances.
+The repository is the chatbot. Open an issue (or comment on one) with a
+question in plain text, and a GitHub Actions job runs the full multi-agent
+pipeline and posts the recommendation as a comment, typically in under a
+minute.
 
-This manual process is slow, prone to errors, and involves multiple supply-chain departments.
+| Ask | Example |
+|---|---|
+| Analyze a product at a store | `analyze bottled water at store 1001` |
+| Same, by IDs | `restock Prod_003 at Store_1002` |
+| Store stock health overview | `status of store 1004` |
+| Run a demo scenario | `run scenario 2` |
+| List known stores and products | `list products` |
+| Usage guide | `help` |
 
----
+A reply looks like this:
 
-## 🤖 Why Agentic AI?
-Traditional rule-based algorithms or single chatbot LLMs cannot coordinate these complex, dynamic business functions effectively. 
+> ### Purified Bottled Water 40-Pack at Store_1001
+> | Stage | Result |
+> |---|---|
+> | Stock health | **CRITICAL_UNDERSTOCK** (0 on hand, threshold 50) |
+> | Demand forecast | 318 units over 7 days (SPIKE), reorder 400 |
+> | Warehouse | Dallas DC: transfer 400 units, 1.2 days |
+> | Logistics | EXPRESS_MOTOR, ETA 0.9 days |
+>
+> **Recommendation: TRANSFER** ... confidence, risk and savings figures,
+> plus the full agent execution log in a collapsible section.
 
-This platform implements a **Supervisor Agent Pattern** utilizing a dynamic state machine that orchestrates specialized AI agents:
-*   Each agent owns a single operational domain (e.g., Inventory, Demand, Warehouse, Supplier, Logistics).
-*   The **Supervisor Agent** coordinates the flow, making dynamic routing decisions based on real-time data states (e.g., bypassing suppliers if warehouse transfers fully satisfy demand, escalating to express air cargo when critical stockouts are detected).
+Use the "Ask the restocking assistant" issue template to get started, or
+run the same brain locally:
 
----
+```bash
+python -m chatbot.bot "analyze smart tv at store 1003"
+```
 
-## 📐 Architecture & Supervisor Pattern
+## How it works
 
-The supervisor evaluates the outputs of each agent dynamically:
+A supervisor agent routes work through six specialists and skips whatever
+the situation does not need (stable stock goes straight to the
+recommendation; a warehouse that covers the full order skips the supplier
+step; critical shortages escalate the transport mode).
 
 ```mermaid
 graph TD
-    User([Store Manager]) --> |Configure Scenario| UI[Streamlit UI]
-    UI --> |Trigger Analysis| Supervisor[Supervisor Agent]
-    
-    subgraph Multi-Agent Group
-        Supervisor --> |1. Health Audit| InventoryAgent[Inventory Monitoring Agent]
-        InventoryAgent --> |Alerts & Status| Supervisor
-        
-        Supervisor --> |2. Trend Analysis| DemandAgent[Demand Forecast Agent]
-        DemandAgent --> |Forecast & Reorder Qty| Supervisor
-        
-        Supervisor --> |3. DC Search| WarehouseAgent[Warehouse Allocation Agent]
-        WarehouseAgent --> |Stock Transfer Proposal| Supervisor
-        
-        Supervisor --> |4. Bid Analysis| SupplierAgent[Supplier Intelligence Agent]
-        SupplierAgent --> |Supplier Bid Proposals| Supervisor
-        
-        Supervisor --> |5. Carrier Selection| LogisticsAgent[Logistics Planning Agent]
-        LogisticsAgent --> |ETA & Transit Costs| Supervisor
-        
-        Supervisor --> |6. Consolidation| RecAgent[Business Recommendation Agent]
-        RecAgent --> |Final Action Card| Supervisor
-    end
-
-    Supervisor --> |Update Dashboards| UI
+    User([Store manager / GitHub issue]) --> Supervisor[Supervisor agent]
+    Supervisor --> |1 health audit| Inventory[Inventory agent]
+    Inventory --> Supervisor
+    Supervisor --> |2 trend analysis| Demand[Demand forecast agent]
+    Demand --> Supervisor
+    Supervisor --> |3 DC search| Warehouse[Warehouse allocation agent]
+    Warehouse --> Supervisor
+    Supervisor --> |4 bid analysis| Supplier[Supplier intelligence agent]
+    Supplier --> Supervisor
+    Supervisor --> |5 carrier selection| Logistics[Logistics planning agent]
+    Logistics --> Supervisor
+    Supervisor --> |6 consolidation| Rec[Recommendation agent]
+    Rec --> Supervisor
+    Supervisor --> Out([Action card / issue comment])
 ```
 
----
+| Agent | Responsibility | Rules applied |
+|---|---|---|
+| Supervisor | Routes the workflow, applies shortcuts, tracks the audit log | State machine |
+| Inventory | Classifies stock health: stable, understock, critical, overstock | Threshold boundaries |
+| Demand | Projects demand from sales history, promotions and seasonality | Moving averages plus surge multipliers |
+| Warehouse | Finds the nearest distribution center with stock | Proximity and transfer cost |
+| Supplier | Scores vendors on lead time, reliability and unit cost | Weighted cost vs speed matrix |
+| Logistics | Picks ground, express or air freight and estimates the ETA | Distance and urgency rules |
+| Recommendation | Consolidates everything into one action with confidence, risk and savings | Cost avoidance analytics |
 
-## 🧩 Specialized Agent Descriptions
+State is a typed Pydantic model (`memory/state_manager.py`) that every agent
+reads and extends, so each run carries a complete, inspectable audit trail.
 
-| Agent Name | Operational Persona | Key Responsibility | Business Rules Applied |
-| :--- | :--- | :--- | :--- |
-| **Supervisor Agent** | Chief SCM Coordinator | Decides workflow transitions, updates state logs, manages retry paths, and coordinates specialized sub-agents. | State Machine Router |
-| **Inventory Monitoring Agent** | Store Auditor | Reads local stock and categorizes health as Stable, Understock, Critical Understock, or Overstock. | Warnings & Threshold Boundaries |
-| **Demand Forecast Agent** | Business Analyst | Evaluates sales history and projects demand based on seasons, promotions, and holidays. | Multi-day Moving Averages + Surge Multipliers |
-| **Warehouse Allocation Agent** | Logistics Allocator | Queries regional distribution centers and finds the nearest stock available for transfer. | Proximity-based Transit Computations |
-| **Supplier Intelligence Agent** | Procurement Specialist | Queries external vendors, comparing lead times, unit costs, and supplier reliability ratings. | Weighted Cost-vs-Speed Bidding Matrix |
-| **Logistics Planning Agent** | Fleet Scheduler | Assigns transit methods (Standard Ground, Express Motor, Air Cargo) and estimates travel schedules. | Dynamic Speed & Distance Logistics Rules |
-| **Business Recommendation Agent** | Chief Restocking Advisor | Synthesizes sourcing outputs into a final actionable plan, calculating savings, confidence, and stockout risk. | Risk and Cost Avoidance Analytics |
+## Quick start
 
----
-
-## 📂 Folder Structure
-```
-walmart-agentic-ai/
-├── app.py                      # Main Streamlit web application
-├── config.py                   # Global configuration, logger, constants
-├── requirements.txt            # Package dependencies
-├── Dockerfile                  # Containerization template
-├── README.md                   # Enterprise README documentation
-├── LICENSE                     # MIT License
-├── .gitignore                  # Git exclusions
-├── .env.example                # Example environment variables
-├── agents/                     # Specialized decision agents
-│   ├── base_agent.py           # Abstract Base Agent definitions
-│   ├── supervisor.py           # Supervisor agent (state & orchestrator)
-│   ├── inventory_agent.py      # Inventory analysis
-│   ├── demand_agent.py         # Demand forecasting
-│   ├── warehouse_agent.py      # Warehouse inventory matching
-│   ├── supplier_agent.py       # Supplier evaluation
-│   ├── logistics_agent.py      # Transit & cost calculation
-│   └── recommendation_agent.py # Recommendation consolidation
-├── tools/                      # Data utility functions
-│   ├── db_tools.py             # CSV Database queries
-│   └── rules_engine.py         # Pre-defined business rules
-│   └── data_generator.py       # Synthetic CSV records generator
-├── memory/                     # State and conversation tracking
-│   └── state_manager.py        # Application state container
-├── data/                       # CSV Datasets
-│   ├── inventory.csv
-│   ├── warehouse.csv
-│   ├── supplier.csv
-│   ├── sales_history.csv
-│   └── transportation.csv
-├── prompts/                    # Prompts used by agents
-│   └── templates.py
-├── logs/                       # Application logs directory
-│   └── execution.log
-└── tests/                      # Automated test suite
-    ├── test_agents.py
-    ├── test_workflow.py
-    └── test_tools.py
-```
-
----
-
-## ⚙️ Installation & Running Locally
-
-### Prerequisites
-*   Python 3.12 (or newer)
-*   Virtual environment tools (`venv` or `uv`)
-
-### 1. Set Up the Project
-Clone the repository and navigate to the project root:
 ```bash
-git clone https://github.com/walmart-global-tech/walmart-agentic-ai.git
+git clone https://github.com/ShreyasThakur11/walmart-agentic-ai.git
 cd walmart-agentic-ai
-```
-
-### 2. Configure Virtual Environment & Install Dependencies
-Create a virtual environment and install packages:
-```bash
-# Using standard Python
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-# Or using uv (recommended for 10x speed)
-uv venv
-uv pip install -r requirements.txt
+pytest tests/ -q          # 18 tests: agents, workflow, tools, chatbot
+streamlit run app.py      # dashboard at http://localhost:8501
 ```
 
-### 3. Generate Datasets
-Initialize the synthetic business data:
-```bash
-python tools/data_generator.py
-```
+Or with Docker:
 
-### 4. Run Automated Tests
-Verify that all agents and state-routing rules pass validation:
-```bash
-pytest tests/
-```
-
-### 5. Start the Operations Dashboard
-Launch the Streamlit interface locally:
-```bash
-streamlit run app.py
-```
-Open your browser at `http://localhost:8501`.
-
----
-
-## 🐳 Running with Docker
-
-Build the Docker image:
 ```bash
 docker build -t walmart-agentic-ai .
-```
-
-Run the container:
-```bash
 docker run -p 8501:8501 walmart-agentic-ai
 ```
 
----
+The `data/` folder ships with a synthetic dataset (5 stores, 8 products,
+8 distribution centers, supplier quotes, 30 days of sales). Regenerate it
+any time with `python tools/data_generator.py`.
 
-## 🎯 Demonstration Guide (Demo Scenarios)
+## Demo scenarios
 
-The dashboard contains a **Demo Mode** in the sidebar that allows running predefined restocking scenarios:
+| # | Situation | What the supervisor does |
+|---|---|---|
+| 1 | Pre-festival bottled water spike | Demand agent projects a 3.5x surge; nearest DC covers it with a rapid ground transfer |
+| 2 | Warehouse stock outage | Zero DC stock detected; routes to the supplier agent and escalates to air cargo |
+| 3 | Supplier lead time delay | Long vendor lead time flagged; shipping mode upgraded, speed-weighted supplier scoring |
+| 4 | Post-promotion spike | Limited DC stock; the restock is split between a transfer and a supplier order |
+| 5 | Multi-store contention | Two stores need the same product; each gets an independent sourcing plan |
 
-1.  **Scenario 1: Pre-Festival Bottled Water Spike**
-    *   *Situation*: Low stock on Bottled Water. Demand agent predicts a 3.5x sales spike due to an upcoming regional festival.
-    *   *Decision*: Supervisor routes to Warehouse Agent, which finds plenty of stock in the nearby Dallas DC. Arranges a rapid ground transfer.
-2.  **Scenario 2: Warehouse Stock Outage**
-    *   *Situation*: Stock of Allergy Relief Cetirizine is critical. Warehouses have 0 inventory.
-    *   *Decision*: Supervisor detects 0 warehouse availability, bypasses warehouse transfer, and routes to Supplier Agent. Supplier Agent selects the most reliable pharmaceutical vendor.
-3.  **Scenario 3: Supplier Lead Time Delay**
-    *   *Situation*: Low stock on Smart TVs. Warehouses are empty. Primary supplier has a long lead time (14 days).
-    *   *Decision*: Logistics agent identifies the delay threat, elevates shipping mode to **AIR_CARGO**, and recommend dual-sourcing options to prevent stockouts.
-4.  **Scenario 4: Post-Promotion Spike**
-    *   *Situation*: Outdoor Patio Furniture stock is depleted after a summer flyer discount event.
-    *   *Decision*: Warehouse stock is limited, so the Supervisor splits the restock: a partial transfer from the nearest warehouse and a supplier order to build safety stock buffer.
-5.  **Scenario 5: Multi-Store Resource Contention**
-    *   *Situation*: Stores 1001 and 1005 both report low Organic Milk stock. Warehouse has limited supply.
-    *   *Decision*: Supervisor allocates warehouse stock to the priority store and schedules a supplier replenishment order for the second store to balance supply across the region.
+Run them from the dashboard sidebar, or ask the chatbot: `run scenario 4`.
 
----
+## Repository layout
 
-## 🔮 Future Roadmap
-The system is architected as a modular state orchestrator, making it easy to integrate:
-*   **ERP Systems**: Connect `db_tools.py` directly to SAP or Oracle SCM tables.
-*   **Physical Sensors**: Stream real-time inventory levels from RFID shelf readers.
-*   **External APIs**: Fetch weather maps or traffic data to modify logistics travel forecasts.
-*   **ML Forecasting Models**: Replace simple moving average forecasting with deep neural network predictors.
+```
+agents/            supervisor and the six specialist agents
+chatbot/           the GitHub issue chatbot (same pipeline, markdown replies)
+memory/            typed workflow state and audit log
+tools/             CSV data access, business rules, data generator
+prompts/           agent persona and rule documentation
+data/              synthetic inventory, sales, warehouse, supplier, transport data
+tests/             pytest suite covering agents, workflow, tools and chatbot
+app.py             Streamlit operations dashboard
+.github/workflows  ci.yml (tests) and chatbot.yml (issue-driven assistant)
+```
 
----
+## Extending it
 
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](file:///C:/Users/thaku/.gemini/antigravity-ide/scratch/walmart-agentic-ai/LICENSE) file for details.
+- Point `tools/db_tools.py` at a real ERP or inventory database instead of CSVs
+- Swap the moving-average forecast for an ML model behind the same interface
+- Add weather or traffic feeds to sharpen the logistics ETAs
+- Connect the recommendation agent to a purchase-order API to close the loop
+
+## License
+
+MIT. See [LICENSE](LICENSE).
