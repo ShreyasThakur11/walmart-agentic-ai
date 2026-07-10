@@ -1,0 +1,201 @@
+StoreID,ProductID,ProductName,CurrentStock,MinimumThreshold,MaximumCapacity,Category
+Store_1001,Prod_001,Great Value Organic Whole Milk,8,20,150,Grocery
+Store_1001,Prod_002,Purified Bottled Water 40-Pack,0,50,400,Grocery
+Store_1001,Prod_003,Equate Ibuprofen 200mg,44,15,100,Pharmacy
+Store_1001,Prod_004,Mainstays Metal Outdoor Patio Set,1,2,20,Home Goods
+Store_1001,Prod_005,onn. 50-inch 4K UHD Smart TV,10,5,30,Electronics
+Store_1001,Prod_006,Equate Allergy Relief Cetirizine,3,10,80,Pharmacy
+Store_1001,Prod_007,Great Value Chocolate Chip Cookies,11,30,200,Grocery
+Store_1001,Prod_008,HP 15.6-inch Laptop 8GB RAM,23,3,25,Electronics
+Store_1001,Prod_009,Mainstays Bedding Set Queen,3,8,50,Home Goods
+Store_1001,Prod_010,Athletic Works Men Running Shoes,2,12,60,Apparel
+Store_1002,Prod_001,Great Value Organic Whole Milk,50,20,150,Grocery
+Store_1002,Prod_002,Purified Bottled Water 40-Pack,21,50,400,Grocery
+Store_1002,Prod_003,Equate Ibuprofen 200mg,37,15,100,Pharmacy
+Store_1002,Prod_004,Mainstays Metal Outdoor Patio Set,1,2,20,Home Goods
+Store_1002,Prod_005,onn. 50-inch 4K UHD Smart TV,3,5,30,Electronics
+Store_1002,Prod_006,Equate Allergy Relief Cetirizine,0,10,80,Pharmacy
+Store_1002,Prod_007,Great Value Chocolate Chip Cookies,72,30,200,Grocery
+Store_1002,Prod_008,HP 15.6-inch Laptop 8GB RAM,2,3,25,Electronics
+Store_1002,Prod_009,Mainstays Bedding Set Queen,23,8,50,Home Goods
+Store_1002,Prod_010,Athletic Works Men Running Shoes,24,12,60,Apparel
+Store_1003,Prod_001,Great Value Organic Whole Milk,84,20,150,Grocery
+Store_1003,Prod_002,Purified Bottled Water 40-Pack,279,50,400,Grocery
+Store_1003,Prod_003,Equate Ibuprofen 200mg,36,15,100,Pharmacy
+Store_1003,Prod_004,Mainstays Metal Outdoor Patio Set,4,2,20,Home Goods
+Store_1003,Prod_005,onn. 50-inch 4K UHD Smart TV,2,5,30,Electronics
+Store_1003,Prod_006,Equate Allergy Relief Cetirizine,75,10,80,Pharmacy
+Store_1003,Prod_007,Great Value Chocolate Chip Cookies,39,30,200,Grocery
+Store_1003,Prod_008,HP 15.6-inch Laptop 8GB RAM,2,3,25,Electronics
+Store_1003,Prod_009,Mainstays Bedding Set Queen,23,8,50,Home Goods
+Store_1003,Prod_010,Athletic Works Men Running Shoes,24,12,60,Apparel
+Store_1004,Prod_001,Great Value Organic Whole Milk,67,20,150,Grocery
+Store_1004,Prod_002,Purified Bottled Water 40-Pack,17,50,400,Grocery
+Store_1004,Prod_003,Equate Ibuprofen 200mg,55,15,100,Pharmacy
+Store_1004,Prod_004,Mainstays Metal Outdoor Patio Set,1,2,20,Home Goods
+Store_1004,Prod_005,onn. 50-inch 4K UHD Smart TV,19,5,30,Electronics
+Store_1004,Prod_006,Equate Allergy Relief Cetirizine,52,10,80,Pharmacy
+Store_1004,Prod_007,Great Value Chocolate Chip Cookies,123,30,200,Grocery
+Store_1004,Prod_008,HP 15.6-inch Laptop 8GB RAM,21,3,25,Electronics
+Store_1004,Prod_009,Mainstays Bedding Set Queen,18,8,50,Home Goods
+Store_1004,Prod_010,Athletic Works Men Running Shoes,55,12,60,Apparel
+Store_1005,Prod_001,Great Value Organic Whole Milk,5,20,150,Grocery
+Store_1005,Prod_002,Purified Bottled Water 40-Pack,240,50,400,Grocery
+Store_1005,Prod_003,Equate Ibuprofen 200mg,31,15,100,Pharmacy
+Store_1005,Prod_004,Mainstays Metal Outdoor Patio Set,7,2,20,Home Goods
+Store_1005,Prod_005,onn. 50-inch 4K UHD Smart TV,14,5,30,Electronics
+Store_1005,Prod_006,Equate Allergy Relief Cetirizine,55,10,80,Pharmacy
+Store_1005,Prod_007,Great Value Chocolate Chip Cookies,15,30,200,Grocery
+Store_1005,Prod_008,HP 15.6-inch Laptop 8GB RAM,1,3,25,Electronics
+Store_1005,Prod_009,Mainstays Bedding Set Queen,47,8,50,Home Goods
+Store_1005,Prod_010,Athletic Works Men Running Shoes,20,12,60,Apparel
+Store_1006,Prod_001,Great Value Organic Whole Milk,11,20,150,Grocery
+Store_1006,Prod_002,Purified Bottled Water 40-Pack,8,50,400,Grocery
+Store_1006,Prod_003,Equate Ibuprofen 200mg,48,15,100,Pharmacy
+Store_1006,Prod_004,Mainstays Metal Outdoor Patio Set,12,2,20,Home Goods
+Store_1006,Prod_005,onn. 50-inch 4K UHD Smart TV,14,5,30,Electronics
+Store_1006,Prod_006,Equate Allergy Relief Cetirizine,72,10,80,Pharmacy
+Store_1006,Prod_007,Great Value Chocolate Chip Cookies,64,30,200,Grocery
+Store_1006,Prod_008,HP 15.6-inch Laptop 8GB RAM,1,3,25,Electronics
+Store_1006,Prod_009,Mainstays Bedding Set Queen,32,8,50,Home Goods
+Store_1006,Prod_010,Athletic Works Men Running Shoes,24,12,60,Apparel
+Store_1007,Prod_001,Great Value Organic Whole Milk,55,20,150,Grocery
+Store_1007,Prod_002,Purified Bottled Water 40-Pack,151,50,400,Grocery
+Store_1007,Prod_003,Equate Ibuprofen 200mg,82,15,100,Pharmacy
+Store_1007,Prod_004,Mainstays Metal Outdoor Patio Set,12,2,20,Home Goods
+Store_1007,Prod_005,onn. 50-inch 4K UHD Smart TV,2,5,30,Electronics
+Store_1007,Prod_006,Equate Allergy Relief Cetirizine,19,10,80,Pharmacy
+Store_1007,Prod_007,Great Value Chocolate Chip Cookies,120,30,200,Grocery
+Store_1007,Prod_008,HP 15.6-inch Laptop 8GB RAM,1,3,25,Electronics
+Store_1007,Prod_009,Mainstays Bedding Set Queen,7,8,50,Home Goods
+Store_1007,Prod_010,Athletic Works Men Running Shoes,41,12,60,Apparel
+Store_1008,Prod_001,Great Value Organic Whole Milk,43,20,150,Grocery
+Store_1008,Prod_002,Purified Bottled Water 40-Pack,193,50,400,Grocery
+Store_1008,Prod_003,Equate Ibuprofen 200mg,51,15,100,Pharmacy
+Store_1008,Prod_004,Mainstays Metal Outdoor Patio Set,18,2,20,Home Goods
+Store_1008,Prod_005,onn. 50-inch 4K UHD Smart TV,11,5,30,Electronics
+Store_1008,Prod_006,Equate Allergy Relief Cetirizine,73,10,80,Pharmacy
+Store_1008,Prod_007,Great Value Chocolate Chip Cookies,165,30,200,Grocery
+Store_1008,Prod_008,HP 15.6-inch Laptop 8GB RAM,15,3,25,Electronics
+Store_1008,Prod_009,Mainstays Bedding Set Queen,6,8,50,Home Goods
+Store_1008,Prod_010,Athletic Works Men Running Shoes,57,12,60,Apparel
+Store_1009,Prod_001,Great Value Organic Whole Milk,7,20,150,Grocery
+Store_1009,Prod_002,Purified Bottled Water 40-Pack,320,50,400,Grocery
+Store_1009,Prod_003,Equate Ibuprofen 200mg,14,15,100,Pharmacy
+Store_1009,Prod_004,Mainstays Metal Outdoor Patio Set,1,2,20,Home Goods
+Store_1009,Prod_005,onn. 50-inch 4K UHD Smart TV,8,5,30,Electronics
+Store_1009,Prod_006,Equate Allergy Relief Cetirizine,8,10,80,Pharmacy
+Store_1009,Prod_007,Great Value Chocolate Chip Cookies,92,30,200,Grocery
+Store_1009,Prod_008,HP 15.6-inch Laptop 8GB RAM,1,3,25,Electronics
+Store_1009,Prod_009,Mainstays Bedding Set Queen,32,8,50,Home Goods
+Store_1009,Prod_010,Athletic Works Men Running Shoes,53,12,60,Apparel
+Store_1010,Prod_001,Great Value Organic Whole Milk,9,20,150,Grocery
+Store_1010,Prod_002,Purified Bottled Water 40-Pack,112,50,400,Grocery
+Store_1010,Prod_003,Equate Ibuprofen 200mg,99,15,100,Pharmacy
+Store_1010,Prod_004,Mainstays Metal Outdoor Patio Set,1,2,20,Home Goods
+Store_1010,Prod_005,onn. 50-inch 4K UHD Smart TV,8,5,30,Electronics
+Store_1010,Prod_006,Equate Allergy Relief Cetirizine,27,10,80,Pharmacy
+Store_1010,Prod_007,Great Value Chocolate Chip Cookies,32,30,200,Grocery
+Store_1010,Prod_008,HP 15.6-inch Laptop 8GB RAM,9,3,25,Electronics
+Store_1010,Prod_009,Mainstays Bedding Set Queen,1,8,50,Home Goods
+Store_1010,Prod_010,Athletic Works Men Running Shoes,14,12,60,Apparel
+Store_1011,Prod_001,Great Value Organic Whole Milk,52,20,150,Grocery
+Store_1011,Prod_002,Purified Bottled Water 40-Pack,118,50,400,Grocery
+Store_1011,Prod_003,Equate Ibuprofen 200mg,8,15,100,Pharmacy
+Store_1011,Prod_004,Mainstays Metal Outdoor Patio Set,1,2,20,Home Goods
+Store_1011,Prod_005,onn. 50-inch 4K UHD Smart TV,13,5,30,Electronics
+Store_1011,Prod_006,Equate Allergy Relief Cetirizine,44,10,80,Pharmacy
+Store_1011,Prod_007,Great Value Chocolate Chip Cookies,41,30,200,Grocery
+Store_1011,Prod_008,HP 15.6-inch Laptop 8GB RAM,20,3,25,Electronics
+Store_1011,Prod_009,Mainstays Bedding Set Queen,3,8,50,Home Goods
+Store_1011,Prod_010,Athletic Works Men Running Shoes,3,12,60,Apparel
+Store_1012,Prod_001,Great Value Organic Whole Milk,79,20,150,Grocery
+Store_1012,Prod_002,Purified Bottled Water 40-Pack,26,50,400,Grocery
+Store_1012,Prod_003,Equate Ibuprofen 200mg,34,15,100,Pharmacy
+Store_1012,Prod_004,Mainstays Metal Outdoor Patio Set,9,2,20,Home Goods
+Store_1012,Prod_005,onn. 50-inch 4K UHD Smart TV,1,5,30,Electronics
+Store_1012,Prod_006,Equate Allergy Relief Cetirizine,49,10,80,Pharmacy
+Store_1012,Prod_007,Great Value Chocolate Chip Cookies,160,30,200,Grocery
+Store_1012,Prod_008,HP 15.6-inch Laptop 8GB RAM,12,3,25,Electronics
+Store_1012,Prod_009,Mainstays Bedding Set Queen,7,8,50,Home Goods
+Store_1012,Prod_010,Athletic Works Men Running Shoes,22,12,60,Apparel
+Store_1013,Prod_001,Great Value Organic Whole Milk,36,20,150,Grocery
+Store_1013,Prod_002,Purified Bottled Water 40-Pack,379,50,400,Grocery
+Store_1013,Prod_003,Equate Ibuprofen 200mg,16,15,100,Pharmacy
+Store_1013,Prod_004,Mainstays Metal Outdoor Patio Set,1,2,20,Home Goods
+Store_1013,Prod_005,onn. 50-inch 4K UHD Smart TV,28,5,30,Electronics
+Store_1013,Prod_006,Equate Allergy Relief Cetirizine,70,10,80,Pharmacy
+Store_1013,Prod_007,Great Value Chocolate Chip Cookies,129,30,200,Grocery
+Store_1013,Prod_008,HP 15.6-inch Laptop 8GB RAM,6,3,25,Electronics
+Store_1013,Prod_009,Mainstays Bedding Set Queen,45,8,50,Home Goods
+Store_1013,Prod_010,Athletic Works Men Running Shoes,36,12,60,Apparel
+Store_1014,Prod_001,Great Value Organic Whole Milk,136,20,150,Grocery
+Store_1014,Prod_002,Purified Bottled Water 40-Pack,38,50,400,Grocery
+Store_1014,Prod_003,Equate Ibuprofen 200mg,50,15,100,Pharmacy
+Store_1014,Prod_004,Mainstays Metal Outdoor Patio Set,11,2,20,Home Goods
+Store_1014,Prod_005,onn. 50-inch 4K UHD Smart TV,18,5,30,Electronics
+Store_1014,Prod_006,Equate Allergy Relief Cetirizine,28,10,80,Pharmacy
+Store_1014,Prod_007,Great Value Chocolate Chip Cookies,65,30,200,Grocery
+Store_1014,Prod_008,HP 15.6-inch Laptop 8GB RAM,12,3,25,Electronics
+Store_1014,Prod_009,Mainstays Bedding Set Queen,4,8,50,Home Goods
+Store_1014,Prod_010,Athletic Works Men Running Shoes,5,12,60,Apparel
+Store_1015,Prod_001,Great Value Organic Whole Milk,8,20,150,Grocery
+Store_1015,Prod_002,Purified Bottled Water 40-Pack,336,50,400,Grocery
+Store_1015,Prod_003,Equate Ibuprofen 200mg,63,15,100,Pharmacy
+Store_1015,Prod_004,Mainstays Metal Outdoor Patio Set,1,2,20,Home Goods
+Store_1015,Prod_005,onn. 50-inch 4K UHD Smart TV,12,5,30,Electronics
+Store_1015,Prod_006,Equate Allergy Relief Cetirizine,40,10,80,Pharmacy
+Store_1015,Prod_007,Great Value Chocolate Chip Cookies,167,30,200,Grocery
+Store_1015,Prod_008,HP 15.6-inch Laptop 8GB RAM,5,3,25,Electronics
+Store_1015,Prod_009,Mainstays Bedding Set Queen,9,8,50,Home Goods
+Store_1015,Prod_010,Athletic Works Men Running Shoes,13,12,60,Apparel
+Store_1016,Prod_001,Great Value Organic Whole Milk,16,20,150,Grocery
+Store_1016,Prod_002,Purified Bottled Water 40-Pack,85,50,400,Grocery
+Store_1016,Prod_003,Equate Ibuprofen 200mg,32,15,100,Pharmacy
+Store_1016,Prod_004,Mainstays Metal Outdoor Patio Set,17,2,20,Home Goods
+Store_1016,Prod_005,onn. 50-inch 4K UHD Smart TV,28,5,30,Electronics
+Store_1016,Prod_006,Equate Allergy Relief Cetirizine,75,10,80,Pharmacy
+Store_1016,Prod_007,Great Value Chocolate Chip Cookies,24,30,200,Grocery
+Store_1016,Prod_008,HP 15.6-inch Laptop 8GB RAM,8,3,25,Electronics
+Store_1016,Prod_009,Mainstays Bedding Set Queen,9,8,50,Home Goods
+Store_1016,Prod_010,Athletic Works Men Running Shoes,5,12,60,Apparel
+Store_1017,Prod_001,Great Value Organic Whole Milk,1,20,150,Grocery
+Store_1017,Prod_002,Purified Bottled Water 40-Pack,178,50,400,Grocery
+Store_1017,Prod_003,Equate Ibuprofen 200mg,57,15,100,Pharmacy
+Store_1017,Prod_004,Mainstays Metal Outdoor Patio Set,17,2,20,Home Goods
+Store_1017,Prod_005,onn. 50-inch 4K UHD Smart TV,29,5,30,Electronics
+Store_1017,Prod_006,Equate Allergy Relief Cetirizine,6,10,80,Pharmacy
+Store_1017,Prod_007,Great Value Chocolate Chip Cookies,57,30,200,Grocery
+Store_1017,Prod_008,HP 15.6-inch Laptop 8GB RAM,13,3,25,Electronics
+Store_1017,Prod_009,Mainstays Bedding Set Queen,9,8,50,Home Goods
+Store_1017,Prod_010,Athletic Works Men Running Shoes,6,12,60,Apparel
+Store_1018,Prod_001,Great Value Organic Whole Milk,62,20,150,Grocery
+Store_1018,Prod_002,Purified Bottled Water 40-Pack,369,50,400,Grocery
+Store_1018,Prod_003,Equate Ibuprofen 200mg,92,15,100,Pharmacy
+Store_1018,Prod_004,Mainstays Metal Outdoor Patio Set,1,2,20,Home Goods
+Store_1018,Prod_005,onn. 50-inch 4K UHD Smart TV,4,5,30,Electronics
+Store_1018,Prod_006,Equate Allergy Relief Cetirizine,11,10,80,Pharmacy
+Store_1018,Prod_007,Great Value Chocolate Chip Cookies,14,30,200,Grocery
+Store_1018,Prod_008,HP 15.6-inch Laptop 8GB RAM,15,3,25,Electronics
+Store_1018,Prod_009,Mainstays Bedding Set Queen,41,8,50,Home Goods
+Store_1018,Prod_010,Athletic Works Men Running Shoes,7,12,60,Apparel
+Store_1019,Prod_001,Great Value Organic Whole Milk,71,20,150,Grocery
+Store_1019,Prod_002,Purified Bottled Water 40-Pack,113,50,400,Grocery
+Store_1019,Prod_003,Equate Ibuprofen 200mg,96,15,100,Pharmacy
+Store_1019,Prod_004,Mainstays Metal Outdoor Patio Set,1,2,20,Home Goods
+Store_1019,Prod_005,onn. 50-inch 4K UHD Smart TV,29,5,30,Electronics
+Store_1019,Prod_006,Equate Allergy Relief Cetirizine,47,10,80,Pharmacy
+Store_1019,Prod_007,Great Value Chocolate Chip Cookies,83,30,200,Grocery
+Store_1019,Prod_008,HP 15.6-inch Laptop 8GB RAM,15,3,25,Electronics
+Store_1019,Prod_009,Mainstays Bedding Set Queen,12,8,50,Home Goods
+Store_1019,Prod_010,Athletic Works Men Running Shoes,51,12,60,Apparel
+Store_1020,Prod_001,Great Value Organic Whole Milk,75,20,150,Grocery
+Store_1020,Prod_002,Purified Bottled Water 40-Pack,16,50,400,Grocery
+Store_1020,Prod_003,Equate Ibuprofen 200mg,89,15,100,Pharmacy
+Store_1020,Prod_004,Mainstays Metal Outdoor Patio Set,3,2,20,Home Goods
+Store_1020,Prod_005,onn. 50-inch 4K UHD Smart TV,8,5,30,Electronics
+Store_1020,Prod_006,Equate Allergy Relief Cetirizine,36,10,80,Pharmacy
+Store_1020,Prod_007,Great Value Chocolate Chip Cookies,21,30,200,Grocery
+Store_1020,Prod_008,HP 15.6-inch Laptop 8GB RAM,1,3,25,Electronics
+Store_1020,Prod_009,Mainstays Bedding Set Queen,29,8,50,Home Goods
+Store_1020,Prod_010,Athletic Works Men Running Shoes,10,12,60,Apparel

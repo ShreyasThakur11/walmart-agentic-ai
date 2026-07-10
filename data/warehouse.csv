@@ -1,0 +1,101 @@
+WarehouseID,Location,AvailableStock,ProductID
+WH_201,Bentonville DC,12,Prod_001
+WH_201,Bentonville DC,612,Prod_002
+WH_201,Bentonville DC,850,Prod_003
+WH_201,Bentonville DC,901,Prod_004
+WH_201,Bentonville DC,195,Prod_005
+WH_201,Bentonville DC,0,Prod_006
+WH_201,Bentonville DC,737,Prod_007
+WH_201,Bentonville DC,217,Prod_008
+WH_201,Bentonville DC,659,Prod_009
+WH_201,Bentonville DC,700,Prod_010
+WH_202,Dallas DC,12,Prod_001
+WH_202,Dallas DC,587,Prod_002
+WH_202,Dallas DC,336,Prod_003
+WH_202,Dallas DC,984,Prod_004
+WH_202,Dallas DC,996,Prod_005
+WH_202,Dallas DC,0,Prod_006
+WH_202,Dallas DC,371,Prod_007
+WH_202,Dallas DC,288,Prod_008
+WH_202,Dallas DC,803,Prod_009
+WH_202,Dallas DC,546,Prod_010
+WH_203,Chicago DC,0,Prod_001
+WH_203,Chicago DC,680,Prod_002
+WH_203,Chicago DC,889,Prod_003
+WH_203,Chicago DC,960,Prod_004
+WH_203,Chicago DC,346,Prod_005
+WH_203,Chicago DC,0,Prod_006
+WH_203,Chicago DC,175,Prod_007
+WH_203,Chicago DC,253,Prod_008
+WH_203,Chicago DC,755,Prod_009
+WH_203,Chicago DC,534,Prod_010
+WH_204,Atlanta DC,0,Prod_001
+WH_204,Atlanta DC,185,Prod_002
+WH_204,Atlanta DC,796,Prod_003
+WH_204,Atlanta DC,384,Prod_004
+WH_204,Atlanta DC,319,Prod_005
+WH_204,Atlanta DC,0,Prod_006
+WH_204,Atlanta DC,168,Prod_007
+WH_204,Atlanta DC,146,Prod_008
+WH_204,Atlanta DC,193,Prod_009
+WH_204,Atlanta DC,849,Prod_010
+WH_205,Phoenix DC,0,Prod_001
+WH_205,Phoenix DC,552,Prod_002
+WH_205,Phoenix DC,303,Prod_003
+WH_205,Phoenix DC,317,Prod_004
+WH_205,Phoenix DC,573,Prod_005
+WH_205,Phoenix DC,0,Prod_006
+WH_205,Phoenix DC,531,Prod_007
+WH_205,Phoenix DC,440,Prod_008
+WH_205,Phoenix DC,650,Prod_009
+WH_205,Phoenix DC,711,Prod_010
+WH_206,Los Angeles DC,0,Prod_001
+WH_206,Los Angeles DC,388,Prod_002
+WH_206,Los Angeles DC,353,Prod_003
+WH_206,Los Angeles DC,833,Prod_004
+WH_206,Los Angeles DC,456,Prod_005
+WH_206,Los Angeles DC,0,Prod_006
+WH_206,Los Angeles DC,122,Prod_007
+WH_206,Los Angeles DC,861,Prod_008
+WH_206,Los Angeles DC,621,Prod_009
+WH_206,Los Angeles DC,857,Prod_010
+WH_207,Seattle DC,0,Prod_001
+WH_207,Seattle DC,936,Prod_002
+WH_207,Seattle DC,199,Prod_003
+WH_207,Seattle DC,901,Prod_004
+WH_207,Seattle DC,279,Prod_005
+WH_207,Seattle DC,0,Prod_006
+WH_207,Seattle DC,322,Prod_007
+WH_207,Seattle DC,861,Prod_008
+WH_207,Seattle DC,758,Prod_009
+WH_207,Seattle DC,541,Prod_010
+WH_208,Miami DC,0,Prod_001
+WH_208,Miami DC,707,Prod_002
+WH_208,Miami DC,868,Prod_003
+WH_208,Miami DC,424,Prod_004
+WH_208,Miami DC,615,Prod_005
+WH_208,Miami DC,0,Prod_006
+WH_208,Miami DC,115,Prod_007
+WH_208,Miami DC,891,Prod_008
+WH_208,Miami DC,435,Prod_009
+WH_208,Miami DC,858,Prod_010
+WH_209,New York DC,0,Prod_001
+WH_209,New York DC,357,Prod_002
+WH_209,New York DC,596,Prod_003
+WH_209,New York DC,995,Prod_004
+WH_209,New York DC,259,Prod_005
+WH_209,New York DC,0,Prod_006
+WH_209,New York DC,574,Prod_007
+WH_209,New York DC,951,Prod_008
+WH_209,New York DC,763,Prod_009
+WH_209,New York DC,789,Prod_010
+WH_210,Denver DC,0,Prod_001
+WH_210,Denver DC,774,Prod_002
+WH_210,Denver DC,479,Prod_003
+WH_210,Denver DC,644,Prod_004
+WH_210,Denver DC,790,Prod_005
+WH_210,Denver DC,0,Prod_006
+WH_210,Denver DC,526,Prod_007
+WH_210,Denver DC,712,Prod_008
+WH_210,Denver DC,367,Prod_009
+WH_210,Denver DC,934,Prod_010
