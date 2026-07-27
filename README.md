@@ -36,8 +36,8 @@ A reply looks like this:
 > | Stage | Result |
 > |---|---|
 > | Stock health | **CRITICAL_UNDERSTOCK** (0 on hand, threshold 50) |
-> | Demand forecast | 318 units over 7 days (SPIKE), reorder 400 |
-> | Warehouse | Dallas DC: transfer 400 units, 1.2 days |
+> | Demand forecast | 318 units over 7 days (SPIKE), reorder 381 |
+> | Warehouse | Dallas DC: transfer 381 units, 1.2 days |
 > | Logistics | EXPRESS_MOTOR, ETA 0.9 days |
 >
 > **Recommendation: TRANSFER** ... confidence, risk and savings figures,
